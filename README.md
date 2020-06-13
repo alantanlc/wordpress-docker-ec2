@@ -12,7 +12,7 @@ You can use Docker Compose to easily run WordPress in an isolated environment bu
 
 # Logging into the AWS EC2 instance
 
-### Prepare private key on your local machine
+#### Prepare private key on your local machine
 
 The [private key](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) (a `.pem` file) that corresponds to your AWS EC2 instance is required in order to connect to your instance using SSH to perform the WordPress installation. If you do not have the private key, please check with your instance provider.
 
@@ -25,31 +25,31 @@ $ mv devops-test.pvt.key devops-test.pem
 $ chmod 400 devops-test.pem
 ```
 
-### Connect into your AWS EC2 instance using SSH
+#### Connect into your AWS EC2 instance using SSH
 ```
 $ ssh -i devops-test.pem devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com
 ```
 
 # Installing WordPress on the AWS EC2 instance
 
-### Update and install system packages
+#### Update and install system packages
 ```
 $ sudo apt update && sudo apt upgrade
 ```
 
-### Install Docker and Docker Compose
+#### Install Docker and Docker Compose
 ```
 $ sudo apt install docker.io
 $ sudo apt install docker-compose
 ```
 
-### Create a wordpress directory
+#### Create a wordpress directory
 ```
 $ mkdir wordpress
 $ cd wordpress
 ```
 
-### Copy `docker-compose.yml` into the wordpress directory using wget or scp
+#### Copy `docker-compose.yml` into the wordpress directory using wget or scp
 Using wget:
 ```
 $ wget https://raw.githubusercontent.com/alanwuha/edb/master/docker-compose.yml
@@ -60,21 +60,21 @@ Using scp:
 $ scp -i devops-test.pvt.key -r docker-compose.yml devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com:~/wordpress
 ```
 
-### Update `docker-compose.yml`
+#### Update `docker-compose.yml`
 Be sure to update `docker-compose.yml` with the credentials and ports specific to your project using an editor before building the project.
 
-### Build the project
+#### Build the project
 Run the following command from the wordpress directory.
 ```
 $ sudo docker-compose up -d
 ```
 This runs `sudo docker-compose up` in detached mode, pulls the needed Docker images, and starts the wordpress and database containers.
 
-### Bring up WordPress in a web browser
+#### Bring up WordPress in a web browser
 
 At this point, WordPress should be running on port `80` of your Docker Host, and you can complete the "famous five-minute installation" as a WordPress administrator by accessing the public IP address of your instance on port `80` (e.g. http://54.255.184.141:80) on the web browser.
 
-### Bring up PhpMyAdmin in a web browser
+#### Bring up PhpMyAdmin in a web browser
 
 At this point, PhpMyAdmin should be running on port `443` of your Docker Host, and you can manage your database by accessing the public IP address of your instance on port `443` (e.g. http://54.255.184.141:443) on the web browser.
 
