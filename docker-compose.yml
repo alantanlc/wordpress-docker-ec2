@@ -21,7 +21,7 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     ports:
-      - '443:80'
+      - '8080:80'
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: password
@@ -42,6 +42,16 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
     networks:
       - wpsite
+  # prometheus
+  prometheus:
+    depends_on:
+      - wordpress
+    image: prom/prometheus
+    ports:
+      - 443:9090
+    restart: always
+    networks:
+      - wpsite    
 networks:
   wpsite:
 volumes:
