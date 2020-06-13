@@ -12,7 +12,7 @@ You can use Docker Compose to easily run WordPress in an isolated environment bu
 
 # Logging into the AWS EC2 instance
 
-### Prepare Private Key
+### Prepare private key on your local machine
 
 The [private key](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) (a `.pem` file) that corresponds to your AWS EC2 instance is required in order to connect to your instance using SSH to perform the WordPress installation. If you do not have the private key, please check with your instance provider.
 
