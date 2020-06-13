@@ -56,8 +56,10 @@ $ wget https://raw.githubusercontent.com/alanwuha/edb/master/docker-compose.yml
 ```
 
 Using scp:
+
+If you have the `docker-compose.yml` file on your local machine, use the following command to transfer the file to the AWS EC2 instance. Be sure to run the command in the same directory as where your private key and docker-compose.yml files are located.
 ```
-$ scp -i devops-test.pvt.key -r docker-compose.yml devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com:~/wordpress
+$ scp -i devops-test.pem -r docker-compose.yml devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com:~/wordpress
 ```
 
 #### Update `docker-compose.yml`
