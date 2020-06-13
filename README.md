@@ -82,9 +82,15 @@ At this point, PhpMyAdmin should be running on port `443` of your Docker Host, a
 
 # Shutting down and cleaning up
 
-The command `docker-compose down` removes the containers and default network, but preserves your WordPress database.
+Remove the containers and default network, but preserve your WordPress database.
+```
+$ sudo docker-compose down
+```
 
-The command `docker-compose down --volumes` removes the containers, default network, and the WordPress database.
+Remove the containers, default network, and the WordPress database. __DO THIS WITH CAUTION, THERE IS NO GOING BACK.__
+```
+$ sudo docker-compose down --volumes
+```
 
 # References
 1. [Best Practices for WordPress on AWS](https://d1.awsstatic.com/whitepapers/wordpress-best-practices-on-aws.pdf)
