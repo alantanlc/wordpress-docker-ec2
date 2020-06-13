@@ -25,7 +25,7 @@ $ mv devops-test.pvt.key devops-test.pem
 $ chmod 400 devops-test.pem
 ```
 
-### SSH into your AWS EC2 instance
+### Connect into your AWS EC2 instance using SSH
 ```
 $ ssh -i devops-test.pem devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com
 ```
@@ -52,7 +52,7 @@ $ cd wordpress
 ### Copy `docker-compose.yml` into the wordpress directory using wget or scp
 Using wget:
 ```
-$ wget https://gist.githubusercontent.com/alanwuha/820f7d11c44abcb13155867ed54c431e/raw/9ac2fb951df88466afe71d8ca474f0fe1d1d746d/docker-compose.yml
+$ wget https://raw.githubusercontent.com/alanwuha/edb/master/docker-compose.yml
 ```
 
 Using scp:
@@ -61,7 +61,7 @@ $ scp -i devops-test.pvt.key -r docker-compose.yml devops-test@ec2-54-255-184-14
 ```
 
 ### Update `docker-compose.yml`
-Be sure to update `docker-compose.yml` with the credentials and ports specified to your project before building the project.
+Be sure to update `docker-compose.yml` with the credentials and ports specific to your project using an editor before building the project.
 
 ### Build the project
 Run the following command from the wordpress directory.
