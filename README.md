@@ -1,14 +1,17 @@
-# Installing WordPress on Amazon Elastic Compute Cloud (Amazon EC2) using Docker Compose
+# Installing WordPress on Amazon Elastic Compute Cloud (Amazon EC2) Ubuntu 18.04 using Docker Compose
 
 There are three main ways to host your own WordPress website on AWS:
 
-1. Amazon Lightsail
+1. Amazon Lightsail (Recommended)
 1. Amazon Elastic Compute Cloud (Amazon EC2)
 1. AWS Marketplace
 
-This document covers the steps to host a WordPress on a Amazon Elastic Compute Cloud (Amazon EC2) using Docker Compose.
+There are also different ways to install WordPress on a Ubuntu machine (non-exhaustive):
+1. Manually set up WordPress with LAMP stack like [this](https://linuxbeast.com/tutorials/aws/how-to-install-wordpress-on-ec2-ubuntu-18-04/) or [this](https://medium.com/@kavishbaghel/setting-up-wordpress-with-lamp-stack-on-ec2-instance-aws-articles-28e50a675e08) or [this](https://aws.amazon.com/getting-started/hands-on/deploy-wordpress-with-amazon-rds/)
+1. Using containers (e.g. Docker and Docker Compose) like [this](https://docs.docker.com/compose/wordpress/)
+1. Using infrastructure as code tools (e.g. Terraform, Ansible) like [this](https://medium.com/@mschirbel/wordpress-on-aws-using-terraform-and-ansible-8c3e04cb76e9)
 
-You can use Docker Compose to easily run WordPress in an isolated environment built with Docker containers. This quick start guide demonstrates how to use Docker Compose to set up and run WordPress on a AWS EC2 instance.
+This guide covers the steps to host a WordPress on a Amazon Elastic Compute Cloud (Amazon EC2) Ubuntu 18.04 machine using Docker Compose. You can use Docker Compose to easily run WordPress in an isolated environment built with Docker containers.
 
 # Logging into the AWS EC2 instance
 
@@ -43,27 +46,22 @@ $ sudo apt install docker.io
 $ sudo apt install docker-compose
 ```
 
-#### Create a wordpress directory
+#### Create a wordpress project using git or wget
+Using git:
 ```
-$ mkdir wordpress
+$ git clone https://github.com/alanwuha/wordpress.git
 $ cd wordpress
 ```
 
-#### Copy `docker-compose.yml` into the wordpress directory using wget or scp
 Using wget:
 ```
+$ mkdir wordpress
+$ cd wordpress
 $ wget https://raw.githubusercontent.com/alanwuha/edb/master/docker-compose.yml
 ```
 
-Using scp:
-
-If you have the `docker-compose.yml` file on your local machine, use the following command to transfer the file to the AWS EC2 instance. Be sure to run the command in the same directory as where your private key and docker-compose.yml files are located.
-```
-$ scp -i devops-test.pem -r docker-compose.yml devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com:~/wordpress
-```
-
-#### Update `docker-compose.yml`
-Be sure to update `docker-compose.yml` with the credentials and ports specific to your project using an editor before building the project.
+#### Update configuration in `docker-compose.yml`
+Update `docker-compose.yml` with the credentials (e.g. database name and passwords) and ports specific to your project using an editor before building the project.
 
 #### Build the project
 Run the following command from the wordpress directory.
@@ -87,7 +85,7 @@ Remove the containers and default network, but preserve your WordPress database.
 $ sudo docker-compose down
 ```
 
-Remove the containers, default network, and the WordPress database. __DO THIS WITH CAUTION, THERE IS NO GOING BACK.__
+Remove the containers, default network, and the WordPress database. __DO THIS WITH CAUTION, YOUR DATA WILL BE ERASED AND THERE IS NO GOING BACK.__
 ```
 $ sudo docker-compose down --volumes
 ```
@@ -95,4 +93,7 @@ $ sudo docker-compose down --volumes
 # References
 1. [Best Practices for WordPress on AWS](https://d1.awsstatic.com/whitepapers/wordpress-best-practices-on-aws.pdf)
 1. [Quickstart: Compose and WordPress](https://docs.docker.com/compose/wordpress/)
+1. [Docker image: WordPress](https://hub.docker.com/_/wordpress/)
+1. [Docker image: MySQL](https://hub.docker.com/_/mysql)
+1. [Docker image: PhpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
 1. [Quick Wordpress Setup with Docker](https://www.youtube.com/watch?v=pYhLEV-sRpY)
