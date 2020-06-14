@@ -1,6 +1,6 @@
 # Installing WordPress on Amazon Elastic Compute Cloud (Amazon EC2) Ubuntu 18.04 using Docker Compose
 
-There are three main ways to host your own WordPress website on AWS:
+There are three main ways to host your own WordPress website on AWS according to the [best practices](https://d1.awsstatic.com/whitepapers/wordpress-best-practices-on-aws.pdf):
 
 1. Amazon Lightsail (Recommended)
 1. Amazon Elastic Compute Cloud (Amazon EC2)
@@ -11,7 +11,7 @@ There are also different ways to install WordPress on a Ubuntu machine (non-exha
 1. Using containers (e.g. Docker and Docker Compose) like [this](https://docs.docker.com/compose/wordpress/)
 1. Using infrastructure as code tools (e.g. Terraform, Ansible) like [this](https://medium.com/@mschirbel/wordpress-on-aws-using-terraform-and-ansible-8c3e04cb76e9)
 
-This guide covers the steps to host a WordPress on a Amazon Elastic Compute Cloud (Amazon EC2) Ubuntu 18.04 machine using Docker Compose. You can use Docker Compose to easily run WordPress in an isolated environment built with Docker containers.
+This guide covers the steps to host a __WordPress on a Amazon Elastic Compute Cloud (Amazon EC2) Ubuntu 18.04 machine using Docker Compose__. You can use Docker Compose to easily run WordPress in an isolated environment built with Docker containers.
 
 # Logging into the AWS EC2 instance
 
@@ -22,7 +22,7 @@ The [private key](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pa
 Extract the private key from the zipped file.
 Note that it is not '-x', there is no space between the option '-p' and the password for the `7z` command. Replace `PASSWORD` with the password for the zipped file.
 ```
-$ sudo apt install p7zip-full
+$ sudo apt-get install p7zip-full
 $ 7z x -pPASSWORD devops-test.pvt.zip
 $ mv devops-test.pvt.key devops-test.pem
 $ chmod 400 devops-test.pem
@@ -35,29 +35,50 @@ $ ssh -i devops-test.pem devops-test@ec2-54-255-184-141.ap-southeast-1.compute.a
 
 # Installation
 
-#### Update and install system packages
+#### Update software repositories and packages
 ```
-$ sudo apt update && sudo apt upgrade
-```
-
-#### Install Docker and Docker Compose
-```
-$ sudo apt install docker.io
-$ sudo apt install docker-compose
+$ sudo apt-get update
+$ sudo apt-get upgrade
 ```
 
-#### Create a wordpress project using git or wget
-Using git:
+#### Install Docker Engine
+This sets up the Docker repository and installs the _latest version_ of Docker Engine and containerd.
+```
+$ sudo apt-get remove docker docker-engine docker.io containerd runc
+$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+Verify that Docker Engine is installed correctly  by running the `hello-world` image.
+```
+$ sudo docker run hello-world
+```
+
+For more information on installing/uninstalling and upgrading Docker Engine, check out the [official installation guide](https://docs.docker.com/engine/install/ubuntu/).
+
+#### Install Docker Compose
+This downloads the _current stable release_ of Docker Compose binary from the [Compose repository release page on GitHub](https://github.com/docker/compose/releases).
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
+Test the installation.
+```
+$ sudo docker-compose --version
+docker-compose version 1.26.0, build 1110ad01
+```
+
+For more information on installing/uninstalling and upgrading Docker Compose, check out the [official installation guide](https://docs.docker.com/compose/install/).
+
+#### Clone the wordpress repository hosted on GitLab to your instance
 ```
 $ git clone https://gitlab.com/alanwuha/wordpress.git
 $ cd wordpress
-```
-
-Using wget:
-```
-$ mkdir wordpress
-$ cd wordpress
-$ wget https://gitlab.com/alanwuha/wordpress/-/raw/master/docker-compose.yml
 ```
 
 #### Update configuration in `docker-compose.yml`
@@ -109,3 +130,5 @@ $ sudo docker-compose down --volumes
 1. [Setting up Prometheus and Grafan for monitoring your servers](https://www.youtube.com/watch?v=4WWW2ZLEg74)
 1. [Collect Docker metrics with Prometheus](https://docs.docker.com/config/daemon/prometheus/)
 1. [Docker Data Volume Container pattern](https://docs.docker.com/storage/volumes/)
+1. [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+1. [Install Docker Compose on Ubuntu](https://docs.docker.com/compose/install/)
