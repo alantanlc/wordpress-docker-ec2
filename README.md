@@ -102,12 +102,12 @@ This runs `sudo docker-compose up` in detached mode, pulls the needed Docker ima
 Containers:
 - WordPress [`http://54.255.184.141:80`](http://54.255.184.141:80)
 - Prometheus (metrics database) [`http://54.255.184.141:9090`](http://54.255.184.141:9090)
-- AlertManager (alerts management) [`http://54.255.184.141:9093`](http://54.255.184.141:9093)
 - Grafana (visualize metrics) [`http://54.255.184.141:443`](http://54.255.184.141:443)
-- Phpmyadmin [`http://54.255.184.141:81`](http://54.255.184.141:81)
+- AlertManager (alerts management) [`http://54.255.184.141:9093`](http://54.255.184.141:9093) - port not opened
+- Phpmyadmin (database administration tool) [`http://54.255.184.141:81`](http://54.255.184.141:81) - port not opened
 - NodeExporter (host metrics collector) [`http://54.255.184.141:9100/metrics`](http://54.255.184.141:9100/metrics)
-- MysqldExporter (database metrics collector) [`http://54.255.184.141:9104/metrics`](http://54.255.184.141:9104/metrics)
-- cAdvisor (containers metrics collector) [`http://54.255.184.141:8080/metrics`](http://54.255.184.141:8080/metrics)
+- MysqldExporter (database metrics collector) [`http://54.255.184.141:9104/metrics`](http://54.255.184.141:9104/metrics) - port not opened
+- cAdvisor (containers metrics collector) [`http://54.255.184.141:8080/metrics`](http://54.255.184.141:8080/metrics) - port not opened
 - Mysql (database)
 
 # Setting Up WordPress
