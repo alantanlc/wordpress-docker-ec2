@@ -88,7 +88,7 @@ $ cd wordpress
 ```
 
 #### Update configuration in `docker-compose.yml` in the wordpress directory
-Update `docker-compose.yml` with the credentials (e.g. database name and passwords) and ports specific to your project using an editor before building the project.
+Update [`docker-compose.yml`](./docker-compose.yml) with the credentials (e.g. database name and passwords) and ports specific to your project using an editor before building the project.
 
 If you are unsure about the necessary changes, please contact the writer of this guide for any clarification.
 
