@@ -35,7 +35,7 @@ $ ssh -i devops-test.pem devops-test@ec2-54-255-184-141.ap-southeast-1.compute.a
 
 # Installing Docker Engine and Docker Compose
 
-If the instance already has Docker Engine and Docker Compose installed, you can skip to 
+If the instance already has Docker Engine and Docker Compose installed, you can skip to [Setting up the WordPress project](#setup).
 
 #### Update software repositories and packages
 ```
@@ -59,7 +59,7 @@ Verify that Docker Engine is installed correctly  by running the `hello-world` i
 $ sudo docker run hello-world
 ```
 
-For more information on installing/uninstalling and upgrading Docker Engine, check out the [official installation guide](https://docs.docker.com/engine/install/ubuntu/).
+For more information on installing, uninstalling and upgrading Docker Engine, check out the [official installation guide](https://docs.docker.com/engine/install/ubuntu/).
 
 #### Install Docker Compose
 This downloads the _current stable release_ of Docker Compose binary from the [Compose repository release page on GitHub](https://github.com/docker/compose/releases).
@@ -75,7 +75,9 @@ $ sudo docker-compose --version
 docker-compose version 1.26.0, build 1110ad01
 ```
 
-For more information on installing/uninstalling and upgrading Docker Compose, check out the [official installation guide](https://docs.docker.com/compose/install/).
+For more information on installing, uninstalling and upgrading Docker Compose, check out the [official installation guide](https://docs.docker.com/compose/install/).
+
+<a name='setup'></a>
 
 # Setting up the WordPress project
 
@@ -85,7 +87,7 @@ $ git clone https://gitlab.com/alanwuha/wordpress.git
 $ cd wordpress
 ```
 
-#### Update configuration in `docker-compose.yml`
+#### Update configuration in `docker-compose.yml` in the wordpress directory
 Update `docker-compose.yml` with the credentials (e.g. database name and passwords) and ports specific to your project using an editor before building the project.
 
 If you are unsure about the necessary changes, please contact the writer of this guide for any clarification.
@@ -120,7 +122,7 @@ Remove the containers and default network, but preserve your WordPress database.
 $ sudo docker-compose down
 ```
 
-Remove the containers, default network, and the WordPress database. __DO THIS WITH CAUTION, YOUR DATA WILL BE ERASED AND THERE IS NO GOING BACK.__
+Remove the containers, default network, and the WordPress database. __DO THIS WITH CAUTION AS YOUR DATA WILL BE ERASED.__
 ```
 $ sudo docker-compose down --volumes
 ```
