@@ -127,13 +127,21 @@ Remove the containers, default network, and the WordPress database. __DO THIS WI
 $ sudo docker-compose down --volumes
 ```
 
+# Monitoring Test
+
+#### Filesystem space available
+```
+fallocate -l 18G gentoo_root.img
+```
+
 # Assumptions
 
-1. This is a standalone application with wordpress, database, and monitoring tools installed on the same AWS EC2 instance.
+This is a standalone application with wordpress, database, and monitoring tools installed on the same AWS EC2 instance.
 
 # Architecture Overview
 
 insert image here
+
 
 # References
 1. [Best Practices for WordPress on AWS](https://d1.awsstatic.com/whitepapers/wordpress-best-practices-on-aws.pdf)
