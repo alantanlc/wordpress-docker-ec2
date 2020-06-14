@@ -81,7 +81,7 @@ For more information on installing, uninstalling and upgrading Docker Compose, c
 
 # Setting up the WordPress project
 
-#### Clone the wordpress repository hosted on GitLab to your instance
+#### Clone this repository on your instance
 ```
 $ git clone https://gitlab.com/alanwuha/wordpress.git
 $ cd wordpress
@@ -97,23 +97,37 @@ Run the following command from the wordpress directory.
 ```
 $ sudo docker-compose up -d
 ```
-This runs `sudo docker-compose up` in detached mode, pulls the needed Docker images, and starts the wordpress and database containers.
+This runs `sudo docker-compose up` in detached mode, pulls the needed Docker images, and starts the containers.
 
-#### Bring up WordPress in a web browser
+Containers:
+- WordPress [`http://54.255.184.141:80`](http://54.255.184.141:80)
+- Prometheus (metrics database) [`http://54.255.184.141:9090`](http://54.255.184.141:9090)
+- AlertManager (alerts management) [`http://54.255.184.141:9093`](http://54.255.184.141:9093)
+- Grafana (visualize metrics) [`http://54.255.184.141:443`](http://54.255.184.141:443)
+- Phpmyadmin [`http://54.255.184.141:82`](http://54.255.184.141:82)
+- NodeExporter (host metrics collector)
+- Mysql (database)
+- MysqldExporter (database metrics collector)
+- cAdvisor (containers metrics collector)
 
-At this point, WordPress should be running on port `80` of your Docker Host, and you can complete the "famous five-minute installation" as a WordPress administrator by accessing [http://54.255.184.141:80](http://54.255.184.141:80) on the web browser.
+# Setup WordPress
 
-#### Bring up PhpMyAdmin in a web browser
+Navigate to [`http://54.255.184.141:80`](http://54.255.184.141:80) and complete the "famous five-minute installation" as a WordPress administrator.
 
-At this point, PhpMyAdmin should be running on port `82` of your Docker Host, and you can manage your database by accessing [http://54.255.184.141:82](http://54.255.184.141:82) on the web browser.
+# Setup Grafana
 
-#### Bringing up Prometheus in a web browser
+Navigate to [`http://54.255.184.141:443`](http://54.255.184.141:443) and login with user __admin__ password __admin__.
 
-At this point, Prometheus should be running on port `9090` of your Docker Host, and you can perform queries and set up alerts or graphs by accessing [http://54.255.184.141:9090](http://54.255.184.141:9090) on the web browser.
+#### Add Prometheus as data source
 
-#### Bringing up Grafana in a web browser
+Go to `Configure > Data Sources` and add Prometheus as a data source. Fill in the URL input with `prometheus:9090` and click on __Save & Test__. If successful, it should return `Data source is working`.
 
-At this point, Grafana should be running on port `443` of your Docker Host, and you can add data sources and create dashboards by accessing [http://54.255.184.141:443](http://54.255.184.141:443) on the web browser.
+### Add dashboards
+
+Go to `Create > Import` import the following dashboards one by one using `Import via grafana.com`, select 'Prometheus' under the _Prometheus_ dropdown and the click __Import__:
+- 1860 (Node Exporter Full)
+- 7362 (MySQL Overview)
+- 893 (Docker and system monitoring)
 
 # Shutting down and cleaning up
 
@@ -149,7 +163,7 @@ This is a standalone application with wordpress, database, and monitoring tools 
 1. [Install Docker Compose on Ubuntu](https://docs.docker.com/compose/install/)
 1. [Docker for Beginners: Full Course](https://www.youtube.com/watch?v=zJ6WbK9zFpI)
 1. [Quickstart: Compose and WordPress](https://docs.docker.com/compose/wordpress/)
-1. [Docker Image: WordPress](https://hub.docker.com/_/wordpress/)
+1. [Docker image: WordPress](https://hub.docker.com/_/wordpress/)
 1. [Docker image: MySQL](https://hub.docker.com/_/mysql)
 1. [Docker image: PhpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
 1. [Docker image: Prometheus](https://hub.docker.com/r/prom/prometheus)
