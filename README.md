@@ -105,10 +105,10 @@ Containers:
 - AlertManager (alerts management) [`http://54.255.184.141:9093`](http://54.255.184.141:9093)
 - Grafana (visualize metrics) [`http://54.255.184.141:443`](http://54.255.184.141:443)
 - Phpmyadmin [`http://54.255.184.141:82`](http://54.255.184.141:82)
-- Mysql (database)
 - NodeExporter (host metrics collector) [`http://54.255.184.141:9100/metrics`](http://54.255.184.141:9100/metrics)
 - MysqldExporter (database metrics collector) [`http://54.255.184.141:9104/metrics`](http://54.255.184.141:9104/metrics)
 - cAdvisor (containers metrics collector) [`http://54.255.184.141:8080/metrics`](http://54.255.184.141:8080/metrics)
+- Mysql (database)
 
 # Setting Up WordPress
 
