@@ -122,7 +122,7 @@ Navigate to [`http://54.255.184.141:443`](http://54.255.184.141:443) and login w
 
 Go to `Configure > Data Sources` and add Prometheus as a data source. Fill in the URL input with `prometheus:9090` and click on __Save & Test__. If successful, it should return `Data source is working`.
 
-### Add dashboards
+#### Add dashboards
 
 Go to `Create > Import` import the following dashboards one by one using `Import via grafana.com`, select 'Prometheus' under the _Prometheus_ dropdown and the click __Import__:
 - 1860 (Node Exporter Full)
