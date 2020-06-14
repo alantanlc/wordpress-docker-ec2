@@ -151,3 +151,4 @@ insert image here
 1. [Docker Data Volume Container pattern](https://docs.docker.com/storage/volumes/)
 1. [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 1. [Install Docker Compose on Ubuntu](https://docs.docker.com/compose/install/)
+1. [Monitoring Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html)
