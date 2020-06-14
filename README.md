@@ -118,16 +118,18 @@ Navigate to [`http://54.255.184.141:80`](http://54.255.184.141:80) and complete 
 
 Navigate to [`http://54.255.184.141:443`](http://54.255.184.141:443) and login with user __admin__ password __admin__.
 
-#### Add Prometheus as data source
+#### 1. Add Prometheus as data source
 
 Go to `Configure > Data Sources` and add Prometheus as a data source. Fill in the URL input with `prometheus:9090` and click on __Save & Test__. If successful, it should return `Data source is working`.
 
-#### Add dashboards
+#### 2. Add dashboards
 
-Go to `Create > Import` import the following dashboards one by one using `Import via grafana.com`, select 'Prometheus' under the _Prometheus_ dropdown and the click __Import__:
+Go to `Create > Import` and import the following dashboards one by one using the steps below:
 - 1860 (Node Exporter Full)
 - 7362 (MySQL Overview)
 - 893 (Docker and system monitoring)
+
+Under `Import via grafana.com`, fill in the dashboard id (e.g. 1860) and click __Load__. Select 'Prometheus' under the _Prometheus_ dropdown and then click __Import__:
 
 # Shutting down and cleaning up
 
