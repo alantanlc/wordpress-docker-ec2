@@ -110,11 +110,11 @@ Containers:
 - MysqldExporter (database metrics collector)
 - cAdvisor (containers metrics collector)
 
-# Setup WordPress
+# Setting Up WordPress
 
 Navigate to [`http://54.255.184.141:80`](http://54.255.184.141:80) and complete the "famous five-minute installation" as a WordPress administrator.
 
-# Setup Grafana
+# Setting Up Grafana
 
 Navigate to [`http://54.255.184.141:443`](http://54.255.184.141:443) and login with user __admin__ password __admin__.
 
