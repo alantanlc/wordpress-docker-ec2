@@ -131,7 +131,7 @@ $ sudo docker-compose down --volumes
 
 1. This is a standalone application with wordpress, database, and monitoring tools installed on the same AWS EC2 instance.
 
-# Architcture Overview
+# Architecture Overview
 
 insert image here
 
@@ -143,6 +143,7 @@ insert image here
 1. [Docker image: PhpMyAdmin](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
 1. [Docker image: Prometheus](https://hub.docker.com/r/prom/prometheus)
 1. [Docker image: Grafana](https://hub.docker.com/r/grafana/grafana)
+1. [Docker image: Node Exporter](https://hub.docker.com/r/prom/node-exporter/)
 1. [Prometheus Docker Installation Guide](https://prometheus.io/docs/prometheus/latest/installation/)
 1. [Quick Wordpress Setup with Docker](https://www.youtube.com/watch?v=pYhLEV-sRpY)
 1. [Setting up Prometheus and Grafana for monitoring your servers](https://www.youtube.com/watch?v=4WWW2ZLEg74)
