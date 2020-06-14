@@ -138,11 +138,6 @@ fallocate -l 18G gentoo_root.img
 
 This is a standalone application with wordpress, database, and monitoring tools installed on the same AWS EC2 instance.
 
-# Architecture Overview
-
-insert image here
-
-
 # References
 1. [Best Practices for WordPress on AWS](https://d1.awsstatic.com/whitepapers/wordpress-best-practices-on-aws.pdf)
 1. [Quickstart: Compose and WordPress](https://docs.docker.com/compose/wordpress/)
