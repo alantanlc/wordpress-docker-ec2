@@ -13,7 +13,7 @@ There are also different ways to install WordPress on a Ubuntu machine (non-exha
 
 This guide covers the steps to host a __WordPress on a Amazon Elastic Compute Cloud (Amazon EC2) Ubuntu 18.04 machine using Docker Compose__. You can use Docker Compose to easily run WordPress in an isolated environment built with Docker containers.
 
-# Logging into the AWS EC2 instance
+# Connecting to the AWS EC2 instance
 
 #### Prepare private key on your local machine
 
@@ -28,12 +28,14 @@ $ mv devops-test.pvt.key devops-test.pem
 $ chmod 400 devops-test.pem
 ```
 
-#### Connect into your AWS EC2 instance using SSH
+#### Connect to your AWS EC2 instance using SSH
 ```
 $ ssh -i devops-test.pem devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com
 ```
 
-# Installation
+# Installing Docker Engine and Docker Compose
+
+If the instance already has Docker Engine and Docker Compose installed, you can skip to 
 
 #### Update software repositories and packages
 ```
@@ -75,6 +77,8 @@ docker-compose version 1.26.0, build 1110ad01
 
 For more information on installing/uninstalling and upgrading Docker Compose, check out the [official installation guide](https://docs.docker.com/compose/install/).
 
+# Setting up the WordPress project
+
 #### Clone the wordpress repository hosted on GitLab to your instance
 ```
 $ git clone https://gitlab.com/alanwuha/wordpress.git
@@ -86,7 +90,7 @@ Update `docker-compose.yml` with the credentials (e.g. database name and passwor
 
 If you are unsure about the necessary changes, please contact the writer of this guide for any clarification.
 
-#### Build the project
+# Building the WordPress project
 Run the following command from the wordpress directory.
 ```
 $ sudo docker-compose up -d
@@ -97,13 +101,17 @@ This runs `sudo docker-compose up` in detached mode, pulls the needed Docker ima
 
 At this point, WordPress should be running on port `80` of your Docker Host, and you can complete the "famous five-minute installation" as a WordPress administrator by accessing the public IP address of your instance on port `80` (e.g. http://54.255.184.141:80) on the web browser.
 
-#### Bringing up Prometheus in a web browser
-
-At this point, Promethues should be running on port `443` of your Docker Host, and you can set up alerts and graphs by accessing the public IP address of your instance on port `443` (e.g. http://54.255.184.141:443) on the web browser.
-
 #### Bring up PhpMyAdmin in a web browser
 
 At this point, PhpMyAdmin should be running on port `8080` of your Docker Host, and you can manage your database by accessing the public IP address of your instance on port `8080` (e.g. http://54.255.184.141:8080) on the web browser.
+
+#### Bringing up Prometheus in a web browser
+
+At this point, Prometheus should be running on port `9090` of your Docker Host, and you can perform queries and set up alerts or graphs by accessing the public IP address of your instance on port `9090` (e.g. http://54.255.184.141:9090) on the web browser.
+
+#### Bringing up Grafana in a web browser
+
+At this point, Grafana should be running on port `443` of your Docker Host, and you can add data sources and create dashboards by accessing the public IP address of your instance on port `443` (e.g. http://54.255.184.141:443) on the web browser.
 
 # Shutting down and cleaning up
 
@@ -127,7 +135,7 @@ $ sudo docker-compose down --volumes
 1. [Docker image: Grafana](https://hub.docker.com/r/grafana/grafana)
 1. [Prometheus Docker Installation Guide](https://prometheus.io/docs/prometheus/latest/installation/)
 1. [Quick Wordpress Setup with Docker](https://www.youtube.com/watch?v=pYhLEV-sRpY)
-1. [Setting up Prometheus and Grafan for monitoring your servers](https://www.youtube.com/watch?v=4WWW2ZLEg74)
+1. [Setting up Prometheus and Grafana for monitoring your servers](https://www.youtube.com/watch?v=4WWW2ZLEg74)
 1. [Collect Docker metrics with Prometheus](https://docs.docker.com/config/daemon/prometheus/)
 1. [Docker Data Volume Container pattern](https://docs.docker.com/storage/volumes/)
 1. [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
