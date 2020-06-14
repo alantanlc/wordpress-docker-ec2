@@ -21,7 +21,7 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     ports:
-      - '8080:80'
+      - '81:80'
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: password
@@ -59,6 +59,20 @@ services:
     restart: always
     volumes:
       - grafana_storage:/var/lib/grafana
+    networks:
+      - wpsite
+  # cadvisor
+  cadvisor:
+    image: google/cadvisor
+    ports:
+      - 8080:8080
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk:/dev/disk/:ro
     networks:
       - wpsite
   # node_exporter

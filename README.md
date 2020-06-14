@@ -152,6 +152,7 @@ insert image here
 1. [Docker image: Prometheus](https://hub.docker.com/r/prom/prometheus)
 1. [Docker image: Grafana](https://hub.docker.com/r/grafana/grafana)
 1. [Docker image: Node Exporter](https://hub.docker.com/r/prom/node-exporter/)
+1. [Docker image: Mysqls Export](https://hub.docker.com/r/prom/mysqld-exporter)
 1. [Prometheus Docker Installation Guide](https://prometheus.io/docs/prometheus/latest/installation/)
 1. [Quick Wordpress Setup with Docker](https://www.youtube.com/watch?v=pYhLEV-sRpY)
 1. [Dockprom - A monitoring solution for Docker hosts and containers](https://github.com/stefanprodan/dockprom)
