@@ -136,7 +136,7 @@ $ sudo docker stop <CONTAINER ID>
 
 #### High Storage Load
 ```
-$ fallocate -l 18G gentoo_root.img
+$ fallocate -l 10G dummy.img
 ```
 
 # Assumptions
@@ -165,3 +165,4 @@ This is a standalone application with wordpress, database, and monitoring tools 
 1. [Docker for Beginners: Full Course](https://www.youtube.com/watch?v=zJ6WbK9zFpI)
 1. [Save your Grafana data to Docker volume](https://grafana.com/docs/grafana/latest/installation/configure-docker/#save-your-grafana-data)
 1. [Step-by-step guide to setting up Prometheus Alertmanager with Slack, PagerDuty, and Gmail](https://grafana.com/blog/2020/02/25/step-by-step-guide-to-setting-up-prometheus-alertmanager-with-slack-pagerduty-and-gmail/)
+1. [Dockprom alert rules](https://github.com/stefanprodan/dockprom/blob/master/prometheus/alert.rules)
