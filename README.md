@@ -129,9 +129,14 @@ $ sudo docker-compose down --volumes
 
 # Monitoring Test
 
-#### Filesystem space available
+#### Instance Down
 ```
-fallocate -l 18G gentoo_root.img
+$ sudo docker stop <CONTAINER ID>
+```
+
+#### High Storage Load
+```
+$ fallocate -l 18G gentoo_root.img
 ```
 
 # Assumptions
@@ -147,7 +152,8 @@ This is a standalone application with wordpress, database, and monitoring tools 
 1. [Docker image: Prometheus](https://hub.docker.com/r/prom/prometheus)
 1. [Docker image: Grafana](https://hub.docker.com/r/grafana/grafana)
 1. [Docker image: Node Exporter](https://hub.docker.com/r/prom/node-exporter/)
-1. [Docker image: Mysqls Export](https://hub.docker.com/r/prom/mysqld-exporter)
+1. [Docker image: Mysqld Export](https://hub.docker.com/r/prom/mysqld-exporter)
+1. [Docker image: Alertmanager](https://hub.docker.com/r/prom/alertmanager)
 1. [Prometheus Docker Installation Guide](https://prometheus.io/docs/prometheus/latest/installation/)
 1. [Quick Wordpress Setup with Docker](https://www.youtube.com/watch?v=pYhLEV-sRpY)
 1. [Dockprom - A monitoring solution for Docker hosts and containers](https://github.com/stefanprodan/dockprom)
@@ -157,4 +163,5 @@ This is a standalone application with wordpress, database, and monitoring tools 
 1. [Install Docker Compose on Ubuntu](https://docs.docker.com/compose/install/)
 1. [Monitoring Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html)
 1. [Docker for Beginners: Full Course](https://www.youtube.com/watch?v=zJ6WbK9zFpI)
-1. [Save your Grafana data](https://grafana.com/docs/grafana/latest/installation/configure-docker/#save-your-grafana-data)
+1. [Save your Grafana data to Docker volume](https://grafana.com/docs/grafana/latest/installation/configure-docker/#save-your-grafana-data)
+1. [Step-by-step guide to setting up Prometheus Alertmanager with Slack, PagerDuty, and Gmail](https://grafana.com/blog/2020/02/25/step-by-step-guide-to-setting-up-prometheus-alertmanager-with-slack-pagerduty-and-gmail/)

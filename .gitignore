@@ -1,9 +1,2 @@
-env
 *.pem
-*.php
-wp-admin
-wp-content
-wp-includes
-readme.html
-license.txt
-.htaccess
+wordpress

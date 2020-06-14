@@ -35,7 +35,7 @@ services:
     ports:
       - '80:80'
     restart: always
-    volumes: ['./:/var/www/html']
+    volumes: ['./wordpress/:/var/www/html']
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
@@ -48,7 +48,22 @@ services:
     ports:
       - 9090:9090
     restart: always
-    volumes: ['./prometheus.yml:/etc/prometheus/prometheus.yml']
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    networks:
+      - wpsite
+  # alertmanager
+  alertmanager:
+    image: prom/alertmanager
+    ports:
+      - 9093:9093
+    volumes:
+      - ./alertmanager:/etc/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
+    restart: always
     networks:
       - wpsite
   # grafana
@@ -95,8 +110,11 @@ services:
       DATA_SOURCE_NAME: wordpress:wordpress@(db:3306)/
     networks:
       - wpsite
+
 networks:
   wpsite:
+  
 volumes:
   db_data:
   grafana_storage:
+  prometheus_data:
