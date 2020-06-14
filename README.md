@@ -22,7 +22,7 @@ The [private key](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pa
 Extract the private key from the zipped file.
 Note that it is not '-x', there is no space between the option '-p' and the password for the `7z` command. Replace `PASSWORD` with the password for the zipped file.
 ```
-$ sudo apt-get install p7zip-full
+$ sudo apt install p7zip-full
 $ 7z x -pPASSWORD devops-test.pvt.zip
 $ mv devops-test.pvt.key devops-test.pem
 $ chmod 400 devops-test.pem
@@ -33,7 +33,7 @@ $ chmod 400 devops-test.pem
 $ ssh -i devops-test.pem devops-test@ec2-54-255-184-141.ap-southeast-1.compute.amazonaws.com
 ```
 
-# Installing WordPress on the AWS EC2 instance
+# Installation
 
 #### Update and install system packages
 ```
@@ -49,7 +49,7 @@ $ sudo apt install docker-compose
 #### Create a wordpress project using git or wget
 Using git:
 ```
-$ git clone https://github.com/alanwuha/wordpress.git
+$ git clone https://gitlab.com/alanwuha/wordpress.git
 $ cd wordpress
 ```
 
@@ -57,7 +57,7 @@ Using wget:
 ```
 $ mkdir wordpress
 $ cd wordpress
-$ wget https://raw.githubusercontent.com/alanwuha/edb/master/docker-compose.yml
+$ wget https://gitlab.com/alanwuha/wordpress/-/raw/master/docker-compose.yml
 ```
 
 #### Update configuration in `docker-compose.yml`
@@ -78,7 +78,7 @@ At this point, WordPress should be running on port `80` of your Docker Host, and
 
 #### Bringing up Prometheus in a web browser
 
-At this point, Promethues should be running on port `443` of your Docker Host, and you can set up alerts and graphs by accessing the public IP address of your instance on port `443` (e.g. http://54.255.184.141:80) on the web browser.
+At this point, Promethues should be running on port `443` of your Docker Host, and you can set up alerts and graphs by accessing the public IP address of your instance on port `443` (e.g. http://54.255.184.141:443) on the web browser.
 
 #### Bring up PhpMyAdmin in a web browser
 
@@ -107,5 +107,5 @@ $ sudo docker-compose down --volumes
 1. [Prometheus Docker Installation Guide](https://prometheus.io/docs/prometheus/latest/installation/)
 1. [Quick Wordpress Setup with Docker](https://www.youtube.com/watch?v=pYhLEV-sRpY)
 1. [Setting up Prometheus and Grafan for monitoring your servers](https://www.youtube.com/watch?v=4WWW2ZLEg74)
-1. [Collect Docker metrics with Promoetheus](https://docs.docker.com/config/daemon/prometheus/)
+1. [Collect Docker metrics with Prometheus](https://docs.docker.com/config/daemon/prometheus/)
 1. [Docker Data Volume Container pattern](https://docs.docker.com/storage/volumes/)
