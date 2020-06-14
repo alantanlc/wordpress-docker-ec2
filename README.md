@@ -88,7 +88,7 @@ $ cd wordpress
 ```
 
 #### Update configuration in `docker-compose.yml` in the wordpress directory
-Update [`docker-compose.yml`](./docker-compose.yml) with the credentials (e.g. database name and passwords) and ports specific to your project using an editor before building the project.
+Update [`docker-compose.yml`](./docker-compose.yml) with the credentials (e.g. database name and passwords) specific to your environment using an editor before building the project.
 
 If you are unsure about the necessary changes, please contact the writer of this guide for any clarification.
 
@@ -104,7 +104,7 @@ Containers:
 - Prometheus (metrics database) [`http://54.255.184.141:9090`](http://54.255.184.141:9090)
 - AlertManager (alerts management) [`http://54.255.184.141:9093`](http://54.255.184.141:9093)
 - Grafana (visualize metrics) [`http://54.255.184.141:443`](http://54.255.184.141:443)
-- Phpmyadmin [`http://54.255.184.141:82`](http://54.255.184.141:82)
+- Phpmyadmin [`http://54.255.184.141:81`](http://54.255.184.141:81)
 - NodeExporter (host metrics collector) [`http://54.255.184.141:9100/metrics`](http://54.255.184.141:9100/metrics)
 - MysqldExporter (database metrics collector) [`http://54.255.184.141:9104/metrics`](http://54.255.184.141:9104/metrics)
 - cAdvisor (containers metrics collector) [`http://54.255.184.141:8080/metrics`](http://54.255.184.141:8080/metrics)
