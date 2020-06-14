@@ -101,19 +101,19 @@ This runs `sudo docker-compose up` in detached mode, pulls the needed Docker ima
 
 #### Bring up WordPress in a web browser
 
-At this point, WordPress should be running on port `80` of your Docker Host, and you can complete the "famous five-minute installation" as a WordPress administrator by accessing the public IP address of your instance on port `80` (e.g. http://54.255.184.141:80) on the web browser.
+At this point, WordPress should be running on port `80` of your Docker Host, and you can complete the "famous five-minute installation" as a WordPress administrator by accessing [http://54.255.184.141:80](http://54.255.184.141:80) on the web browser.
 
 #### Bring up PhpMyAdmin in a web browser
 
-At this point, PhpMyAdmin should be running on port `8080` of your Docker Host, and you can manage your database by accessing the public IP address of your instance on port `8080` (e.g. http://54.255.184.141:8080) on the web browser.
+At this point, PhpMyAdmin should be running on port `82` of your Docker Host, and you can manage your database by accessing [http://54.255.184.141:82](http://54.255.184.141:82) on the web browser.
 
 #### Bringing up Prometheus in a web browser
 
-At this point, Prometheus should be running on port `9090` of your Docker Host, and you can perform queries and set up alerts or graphs by accessing the public IP address of your instance on port `9090` (e.g. http://54.255.184.141:9090) on the web browser.
+At this point, Prometheus should be running on port `9090` of your Docker Host, and you can perform queries and set up alerts or graphs by accessing [http://54.255.184.141:9090](http://54.255.184.141:9090) on the web browser.
 
 #### Bringing up Grafana in a web browser
 
-At this point, Grafana should be running on port `443` of your Docker Host, and you can add data sources and create dashboards by accessing the public IP address of your instance on port `443` (e.g. http://54.255.184.141:443) on the web browser.
+At this point, Grafana should be running on port `443` of your Docker Host, and you can add data sources and create dashboards by accessing [http://54.255.184.141:443](http://54.255.184.141:443) on the web browser.
 
 # Shutting down and cleaning up
 
