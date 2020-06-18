@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-06-18T04:35:17.633Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36" etag="4e9ETgYXxd69SeKVkoqo" version="13.2.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-06-18T04:51:27.098Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36" etag="0_0D9itbDWlUBFj9SV4g" version="13.2.6" type="github">
   <diagram id="3Udwaxf7R3BKH99yaF8i" name="Page-1">
-    <mxGraphModel dx="1389" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1389" dy="770" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,7 +8,7 @@
           <mxGeometry width="960" height="1240" as="geometry" />
         </mxCell>
         <mxCell id="7tB3b5or42oxtXfstbLV-53" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Docker Host&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="120" y="120" width="720" height="1000" as="geometry" />
+          <mxGeometry x="120" y="118" width="720" height="1000" as="geometry" />
         </mxCell>
         <mxCell id="7tB3b5or42oxtXfstbLV-20" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="200" y="200" width="160" height="160" as="geometry" />
