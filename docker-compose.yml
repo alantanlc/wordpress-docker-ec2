@@ -32,10 +32,11 @@ services:
     depends_on:
       - db
     image: wordpress:latest
-    ports:
-      - '80:80'
+    expose:
+      - 80 
     restart: always
-    volumes: ['./wordpress/:/var/www/html']
+    volumes: 
+      - ./wordpress/:/var/www/html
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
@@ -70,7 +71,7 @@ services:
   grafana:
     image: grafana/grafana
     ports:
-      - 443:3000
+      - 3000:3000
     restart: always
     volumes:
       - grafana_storage:/var/lib/grafana
@@ -108,6 +109,17 @@ services:
     restart: always
     environment:
       DATA_SOURCE_NAME: wordpress:wordpress@(db:3306)/
+    networks:
+      - wpsite
+  # nginx
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/:/etc/nginx/ 
+    restart: always
     networks:
       - wpsite
 
